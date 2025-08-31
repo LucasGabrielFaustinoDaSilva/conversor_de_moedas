@@ -1,0 +1,21 @@
+Erros encontrados durante o desenvolvimento do Conversor de Moedas:
+
+1. Lista de moedas não carregava:
+   - Causa: A API externa (exchangerate.host/symbols) não retornava os símbolos corretamente ou exigia chave.
+   - Solução: Criar uma lista fixa de moedas no backend para preencher os dropdowns do frontend.
+
+2. Erro de conversão (missing access key):
+   - Causa: A conversão estava sendo feita sem a chave da API.
+   - Solução: Adicionar a chave de API no backend (ACCESS_KEY) e usar na rota /converter.
+
+3. Problemas de CORS:
+   - Causa: O frontend não conseguia acessar o backend devido a restrições do navegador.
+   - Solução: Adicionar middleware CORS no FastAPI permitindo requisições de qualquer origem.
+
+4. ModuleNotFoundError: requests
+   - Causa: A biblioteca 'requests' não estava instalada no ambiente virtual.
+   - Solução: Instalar requests usando 'pip install requests' no venv ativo.
+
+5. Erro undefined nas opções de moedas:
+   - Causa: O backend retornava erro ou objeto vazio.
+   - Solução: Criar validação no JS para mostrar mensagem de erro e garantir que o dropdown só seja preenchido se o backend retornar dados válidos.
